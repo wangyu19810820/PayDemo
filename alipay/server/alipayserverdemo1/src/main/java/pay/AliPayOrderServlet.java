@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+// 网上Demo，创建交易，其实单独调用AliPayOrder的main方法，也能完成相同的测试
 public class AliPayOrderServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -12,6 +12,11 @@ import java.util.Date;
 
 import static pay.Constants.*;
 
+/**
+ * 创建交易
+ * 传递交易号，商品名，价格，购买用户的id
+ * 返回交易是否成功的信息
+ */
 public class AliPayOrder {
 
     public static AlipayTradeCreateResponse makeOrder(AlipayTradeCreateRequest req) throws AlipayApiException {
@@ -30,7 +35,7 @@ public class AliPayOrder {
         json.put("out_trade_no", "999"+sdf.format(new Date()));
         json.put("total_amount", 0.01);
         json.put("subject", "THESUBJECT");
-        json.put("buyer_id", "我们之前获取到的user_id");
+        json.put("buyer_id", "2088102176255782");
         String jsonStr=json.toString();
         req.setBizContent(jsonStr);
         return req;

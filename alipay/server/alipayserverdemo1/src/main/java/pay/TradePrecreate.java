@@ -9,6 +9,11 @@ import com.alipay.api.response.AlipayTradePrecreateResponse;
 
 import static pay.Constants.*;
 
+/**
+ *  预创建交易，
+ *  传送交易号，商品名，价格，
+ *  返回二维码编码
+ */
 public class TradePrecreate {
 
     public static void main(String[] args) {

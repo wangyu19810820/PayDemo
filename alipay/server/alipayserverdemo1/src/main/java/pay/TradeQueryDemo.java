@@ -6,7 +6,8 @@ import com.alipay.api.request.AlipayTradeQueryRequest;
 import com.alipay.api.response.AlipayTradeQueryResponse;
 import static pay.Constants.*;
 
-public class TradeDemo {
+// 交易查询
+public class TradeQueryDemo {
 
     public static void main(String[] args) {
         try {

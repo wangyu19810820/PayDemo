@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
 
+/**
+ * 单点登录的回调获取用户id
+ */
 public class AliPayUserIdServlet extends HttpServlet {
 
     @Override

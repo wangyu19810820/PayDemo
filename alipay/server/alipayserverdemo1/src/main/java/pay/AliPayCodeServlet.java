@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
 
+/**
+ * 发送给用户的链接，用以获取用户ID
+ */
 public class AliPayCodeServlet extends HttpServlet {
 
     @Override
