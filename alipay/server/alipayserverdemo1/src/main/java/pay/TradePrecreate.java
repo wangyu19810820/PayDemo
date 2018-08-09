@@ -18,7 +18,7 @@ public class TradePrecreate {
 
     public static void main(String[] args) {
         try {
-            AlipayClient alipayClient = new DefaultAlipayClient(SERVER_URL, APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, "RSA2");
+            AlipayClient alipayClient = new DefaultAlipayClient(SERVER_URL, APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, SIGN_TYPE);
             AlipayTradePrecreateRequest request = new AlipayTradePrecreateRequest();
             AlipayTradePrecreateModel model = new AlipayTradePrecreateModel();
             request.setBizModel(model);
