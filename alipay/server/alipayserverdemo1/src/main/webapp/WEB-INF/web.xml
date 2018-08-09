@@ -15,4 +15,15 @@
         <servlet-name>Jersey Web Application</servlet-name>
         <url-pattern>/webapi/*</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AliPayCodeServlet</servlet-name>
+        <servlet-class>pay.AliPayCodeServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AliPayCodeServlet</servlet-name>
+        <url-pattern>/alipayCode</url-pattern>
+    </servlet-mapping>
+
 </web-app>

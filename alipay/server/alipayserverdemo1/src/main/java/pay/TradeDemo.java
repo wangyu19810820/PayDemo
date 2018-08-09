@@ -11,7 +11,7 @@ public class TradeDemo {
     public static void main(String[] args) {
         try {
             AlipayClient alipayClient = new DefaultAlipayClient(SERVER_URL,
-                    APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, "RSA2"); //获得初始化的AlipayClient
+                    APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, SIGN_TYPE); //获得初始化的AlipayClient
             AlipayTradeQueryRequest request = new AlipayTradeQueryRequest();//创建API对应的request类
             request.setBizContent("{" +
                     "   \"out_trade_no\":\"20150320010101001\"," +
