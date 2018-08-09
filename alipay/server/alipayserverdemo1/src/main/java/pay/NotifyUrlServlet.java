@@ -1,6 +1,7 @@
 package pay;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.io.PrintWriter;
 /**
  * 交易成功后的，阿里向服务器发送的异步消息
  */
-public class NotifyUrlServlet {
+public class NotifyUrlServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

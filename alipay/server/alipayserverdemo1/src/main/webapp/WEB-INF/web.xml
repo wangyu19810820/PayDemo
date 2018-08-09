@@ -26,4 +26,24 @@
         <url-pattern>/alipayCode</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AliPayUserIdServlet</servlet-name>
+        <servlet-class>pay.AliPayUserIdServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AliPayUserIdServlet</servlet-name>
+        <url-pattern>/alipayUserId</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NotifyUrlServlet</servlet-name>
+        <servlet-class>pay.NotifyUrlServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NotifyUrlServlet</servlet-name>
+        <url-pattern>/notifyUrl</url-pattern>
+    </servlet-mapping>
+
 </web-app>

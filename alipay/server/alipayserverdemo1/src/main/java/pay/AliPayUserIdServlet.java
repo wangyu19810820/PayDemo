@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
+import java.security.PrivateKey;
+
+import static pay.Constants.*;
 
 /**
  * 单点登录的回调获取用户id
@@ -47,8 +50,9 @@ public class AliPayUserIdServlet extends HttpServlet {
     }
 
     private DefaultAlipayClient alipayClient(){
-        DefaultAlipayClient alipayclient=new DefaultAlipayClient("https://openapi.alipay.com/gateway.do","你的appid",   "你的公钥","json", "GBK",
-                "你的私钥","你私钥的加密方式");
+        DefaultAlipayClient alipayclient=new DefaultAlipayClient("https://openapi.alipay.com/gateway.do",
+                APP_ID, APP_PRIVATE_KEY,"json", Constants.CHARSET,
+                ALIPAY_PUBLIC_KEY,Constants.SIGN_TYPE);
         return alipayclient;
     }
 
