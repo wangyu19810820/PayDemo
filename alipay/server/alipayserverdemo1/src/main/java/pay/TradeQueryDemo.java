@@ -15,8 +15,7 @@ public class TradeQueryDemo {
                     APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, SIGN_TYPE); //获得初始化的AlipayClient
             AlipayTradeQueryRequest request = new AlipayTradeQueryRequest();//创建API对应的request类
             String str = "{" +
-                    "   \"out_trade_no\":\"70501111111S001111119\"" +
-//                    "   \"trade_no\":\"2014112611001004680073956707\"" +
+                    "   \"out_trade_no\":\"S6RE1P8R48R5V10\"" +
                     "  }";//设置业务参数
             request.setBizContent(str);
             AlipayTradeQueryResponse response = alipayClient.execute(request);//通过alipayClient调用API，获得对应的response类
