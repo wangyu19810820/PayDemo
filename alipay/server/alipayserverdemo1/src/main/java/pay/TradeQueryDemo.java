@@ -1,5 +1,7 @@
 package pay;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradeQueryRequest;
@@ -20,6 +22,9 @@ public class TradeQueryDemo {
             request.setBizContent(str);
             AlipayTradeQueryResponse response = alipayClient.execute(request);//通过alipayClient调用API，获得对应的response类
             System.out.print(response.getBody());
+            JSONObject jsonObject = JSON.parseObject(response.getBody());
+            JSONObject o = (JSONObject)jsonObject.get("alipay_trade_query_response");
+            System.out.println(o.get("msg"));
         } catch (Exception e) {
             e.printStackTrace();
         }

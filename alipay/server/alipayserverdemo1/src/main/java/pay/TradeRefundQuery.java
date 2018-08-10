@@ -25,6 +25,7 @@ public class TradeRefundQuery {
             } else {
                 System.out.println("调用失败");
             }
+            System.out.println(response.getBody());
         } catch (Exception e) {
             e.printStackTrace();
         }
