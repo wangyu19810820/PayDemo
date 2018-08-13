@@ -35,6 +35,7 @@ public class WeixinpayUtil {
     public static <T extends WeixinpayResponse> T invoke(WeixinpayModel requestModel, Class<T> responseClassName, String url)
             throws WeixinpayException {
         try {
+            System.out.println(url);
             SSLContext sslContext = new SSLContextBuilder()
                     .loadTrustMaterial(null, (certificate, authType) -> true).build();
 
@@ -92,6 +93,9 @@ public class WeixinpayUtil {
                 if ("sign".equals(entry.getKey())) {
                     continue;
                 }
+                if (entry.getValue() == null || "".equals(entry.getValue())) {
+                    continue;
+                }
                 param.append(entry.getKey() + "=" + entry.getValue() + "&");
             }
             param.append("key=" + model.getKey());
@@ -113,6 +117,9 @@ public class WeixinpayUtil {
                 continue;
             }
             if ("key".equals(entry.getKey())) {
+                continue;
+            }
+            if (entry.getValue() == null || "".equals(entry.getValue())) {
                 continue;
             }
             Element element = root.addElement(entry.getKey());

@@ -1,12 +1,8 @@
 package pay.util;
 
 import pay.exception.WeixinpayException;
-import pay.model.request.WeixinpayModel;
-import pay.model.request.WeixinpayOrderqueryModel;
-import pay.model.request.WeixinpayUnifiedorderModel;
-import pay.model.response.WeixinpayOrderqueryResponse;
-import pay.model.response.WeixinpayResponse;
-import pay.model.response.WeixinpayUnifiedorderResponse;
+import pay.model.request.*;
+import pay.model.response.*;
 
 public class WeixinpayInterfaceUtil {
 
@@ -22,6 +18,27 @@ public class WeixinpayInterfaceUtil {
             throws WeixinpayException {
         WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
         return WeixinpayInterfaceUtil.invoke(model, WeixinpayOrderqueryResponse.class, config.getOrderqueryUrl());
+    }
+
+    // 关闭订单
+    public static WeixinpayCloseorderResponse closeorder(WeixinpayCloseorderModel model)
+            throws WeixinpayException {
+        WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
+        return WeixinpayInterfaceUtil.invoke(model, WeixinpayCloseorderResponse.class, config.getCloseorderUrl());
+    }
+
+    // 申请退款
+    public static WeixinpayRefundResponse refund(WeixinpayRefundModel model)
+            throws WeixinpayException {
+        WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
+        return WeixinpayInterfaceUtil.invoke(model, WeixinpayRefundResponse.class, config.getRefundUrl());
+    }
+
+    // 查询退款
+    public static WeixinpayRefundResponse refundquery(WeixinpayRefundqueryModel model)
+            throws WeixinpayException {
+        WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
+        return WeixinpayInterfaceUtil.invoke(model, WeixinpayRefundResponse.class, config.getRefundquery());
     }
 
     private static <T extends WeixinpayModel, K extends WeixinpayResponse> K invoke(
