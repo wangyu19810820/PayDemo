@@ -2,6 +2,16 @@ package pay.util;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.ssl.SSLContextBuilder;
+import org.apache.http.util.EntityUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
@@ -10,7 +20,9 @@ import org.dom4j.io.XMLWriter;
 import pay.exception.WeixinpayException;
 import pay.model.request.WeixinpayModel;
 import pay.model.response.WeixinpayResponse;
+import pay.model.response.WeixinpayUnifiedorderResponse;
 
+import javax.net.ssl.SSLContext;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.HashMap;
@@ -19,6 +31,32 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class WeixinpayUtil {
+
+    public static <T extends WeixinpayResponse> T invoke(WeixinpayModel requestModel, Class<T> responseClassName, String url)
+            throws WeixinpayException {
+        try {
+            SSLContext sslContext = new SSLContextBuilder()
+                    .loadTrustMaterial(null, (certificate, authType) -> true).build();
+
+            CloseableHttpClient client = HttpClients.custom()
+                    .setSSLContext(sslContext)
+                    .setSSLHostnameVerifier(new NoopHostnameVerifier())
+                    .build();
+            HttpPost httpPost = new HttpPost(url);
+            String xmlData = WeixinpayUtil.generateXML(requestModel);
+            System.out.println(xmlData);
+            httpPost.setHeader("Content-Type", "application/xml");
+            httpPost.setEntity(new StringEntity(xmlData, ContentType.create("application/xml", "utf-8")));
+
+            HttpResponse response = client.execute(httpPost);
+            HttpEntity entity = response.getEntity();
+            String result = EntityUtils.toString(entity, "UTF-8");
+            T responseModel = WeixinpayUtil.<T>resolve(result, responseClassName);
+            return responseModel;
+        } catch (Exception e) {
+            throw new WeixinpayException(e.getMessage());
+        }
+    }
 
     public static <T extends WeixinpayResponse> T resolve(String xml, Class<T> cls) throws WeixinpayException {
         try {

@@ -20,4 +20,12 @@ public class WeixinpayResponse {
     public void setReturn_msg(String return_msg) {
         this.return_msg = return_msg;
     }
+
+    @Override
+    public String toString() {
+        return "WeixinpayResponse{" +
+                "return_code='" + return_code + '\'' +
+                ", return_msg='" + return_msg + '\'' +
+                '}';
+    }
 }
