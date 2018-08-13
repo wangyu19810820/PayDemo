@@ -83,6 +83,7 @@ public class WeixinPayTest {
                 .build();
         HttpPost httpPost = new HttpPost("https://api.mch.weixin.qq.com/pay/unifiedorder");
         String xmlData = generateXML();
+        System.out.println(xmlData);
 
         httpPost.setHeader("Content-Type","application/xml");  //
         httpPost.setEntity(new StringEntity(xmlData, ContentType.create("application/xml", "utf-8")));
@@ -102,8 +103,9 @@ public class WeixinPayTest {
         map.put("nonce_str", "abc");
         map.put("spbill_create_ip", "14.23.150.211");
         map.put("total_fee", "1");
+        map.put("notify_url", "1");
         map.put("trade_type", "APP");
-        map.put("out_trade_no", "1");
+        map.put("out_trade_no", "http://abc.com");
 
         StringBuffer param = new StringBuffer();
         for (Map.Entry<String, String> entry : map.entrySet()) {
