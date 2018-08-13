@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class SendMsgToWeChatViewController;
+@class WeChatPayViewController;
 
 @interface AppDelegate : UIResponder<UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) SendMsgToWeChatViewController *viewController;
+@property (strong, nonatomic) WeChatPayViewController *viewController;
 
 @end
