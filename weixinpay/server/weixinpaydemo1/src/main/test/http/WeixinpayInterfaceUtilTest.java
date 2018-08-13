@@ -7,7 +7,6 @@ import pay.model.response.WeixinpayOrderqueryResponse;
 import pay.model.response.WeixinpayRefundResponse;
 import pay.model.response.WeixinpayUnifiedorderResponse;
 import pay.util.WeixinpayInterfaceUtil;
-import pay.util.WeixinpayUnifiedorderUtil;
 
 public class WeixinpayInterfaceUtilTest {
 
