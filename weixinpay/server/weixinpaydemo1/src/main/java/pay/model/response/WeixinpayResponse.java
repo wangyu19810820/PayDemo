@@ -1,6 +1,6 @@
 package pay.model.response;
 
-public class WeixinpayResponseModel {
+public class WeixinpayResponse {
 
     private String return_code;
     private String return_msg;

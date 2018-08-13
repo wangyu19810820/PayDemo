@@ -9,7 +9,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import pay.exception.WeixinpayException;
 import pay.model.request.WeixinpayModel;
-import pay.model.response.WeixinpayResponseModel;
+import pay.model.response.WeixinpayResponse;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -20,7 +20,7 @@ import java.util.TreeMap;
 
 public class WeixinpayUtil {
 
-    public static <T extends WeixinpayResponseModel> T resolve(String xml, Class<T> cls) throws WeixinpayException {
+    public static <T extends WeixinpayResponse> T resolve(String xml, Class<T> cls) throws WeixinpayException {
         try {
             T obj = cls.newInstance();
             Document doc = DocumentHelper.parseText(xml);

@@ -12,12 +12,13 @@ import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
 import pay.exception.WeixinpayException;
 import pay.model.request.WeixinpayUnifiedorderModel;
+import pay.model.response.WeixinpayResponse;
 
 import javax.net.ssl.SSLContext;
 
 public class WeixinpayUnifiedorderUtil {
 
-    public static String invoke(WeixinpayUnifiedorderModel model) throws WeixinpayException {
+    public static WeixinpayResponse invoke(WeixinpayUnifiedorderModel model) throws WeixinpayException {
         try {
             SSLContext sslContext = new SSLContextBuilder()
                     .loadTrustMaterial(null, (certificate, authType) -> true).build();
@@ -28,17 +29,15 @@ public class WeixinpayUnifiedorderUtil {
                     .build();
             HttpPost httpPost = new HttpPost("https://api.mch.weixin.qq.com/pay/unifiedorder");
             String xmlData = WeixinpayUtil.generateXML(model);
-            System.out.println(xmlData);
 
             httpPost.setHeader("Content-Type", "application/xml");  //
             httpPost.setEntity(new StringEntity(xmlData, ContentType.create("application/xml", "utf-8")));
             HttpResponse response = client.execute(httpPost);
-            System.out.println(response.toString());
+
             HttpEntity entity = response.getEntity();
             String result = EntityUtils.toString(entity, "UTF-8");
-            System.out.println(result);
-
-            return "";
+            WeixinpayResponse responseModel = WeixinpayUtil.resolve(result, WeixinpayResponse.class);
+            return responseModel;
         } catch (Exception e) {
             throw new WeixinpayException(e.getMessage());
         }
