@@ -9,13 +9,36 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import pay.exception.WeixinpayException;
 import pay.model.request.WeixinpayModel;
+import pay.model.response.WeixinpayResponseModel;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class WeixinpayUtil {
+
+    public static <T extends WeixinpayResponseModel> T resolve(String xml, Class<T> cls) throws WeixinpayException {
+        try {
+            T obj = cls.newInstance();
+            Document doc = DocumentHelper.parseText(xml);
+            Element rootElt = doc.getRootElement(); // 获取根节点
+            Iterator iter = rootElt.elementIterator();
+            Map<String, String> map = new HashMap<>();
+
+            while (iter.hasNext()) {
+                Element recordEle = (Element) iter.next();
+                System.out.println("name:" + recordEle.getName() + ",value:" + recordEle.getText());
+                map.put(recordEle.getName(), recordEle.getText());
+            }
+            BeanUtils.populate(obj, map);
+            return obj;
+        } catch (Exception e) {
+            throw new WeixinpayException(e.getMessage());
+        }
+    }
 
     public static String generateXML(WeixinpayModel model) throws WeixinpayException {
         try {
@@ -34,7 +57,6 @@ public class WeixinpayUtil {
                 param.append(entry.getKey() + "=" + entry.getValue() + "&");
             }
             param.append("key=" + model.getKey());
-            System.out.println(param.toString());
 
             String encodeStr = DigestUtils.md5Hex(param.toString()).toUpperCase();
             map.put("sign", encodeStr);

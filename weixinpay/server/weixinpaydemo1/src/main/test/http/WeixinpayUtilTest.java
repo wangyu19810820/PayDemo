@@ -2,12 +2,13 @@ package http;
 
 import org.junit.Test;
 import pay.model.request.WeixinpayUnifiedorderModel;
+import pay.model.response.WeixinpayResponseModel;
 import pay.util.WeixinpayUtil;
 
 public class WeixinpayUtilTest {
 
     @Test
-    public void test() throws Exception {
+    public void test1() throws Exception {
         WeixinpayUnifiedorderModel model = new WeixinpayUnifiedorderModel();
         model.setAppid("wx49680a1b177c1fd7");
         model.setBody("bbb");
@@ -22,5 +23,14 @@ public class WeixinpayUtilTest {
 
         String xml = WeixinpayUtil.generateXML(model);
         System.out.println(xml);
+    }
+
+    @Test
+    public void test2() throws Exception {
+        String xml = "<xml><return_code><![CDATA[FAIL]]></return_code>\n" +
+                "<return_msg><![CDATA[商户号该产品权限未开通，请前往商户平台>产品中心检查后重试]]></return_msg>\n" +
+                "</xml>";
+        WeixinpayResponseModel obj = WeixinpayUtil.<WeixinpayResponseModel>resolve(xml, WeixinpayResponseModel.class);
+        System.out.println(obj);
     }
 }
