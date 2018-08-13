@@ -10,32 +10,37 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
+import pay.exception.WeixinpayException;
 import pay.model.request.WeixinpayUnifiedorderModel;
 
 import javax.net.ssl.SSLContext;
 
 public class WeixinpayUnifiedorderUtil {
 
-    public static String invoke(WeixinpayUnifiedorderModel model) throws Exception {
-        SSLContext sslContext = new SSLContextBuilder()
-                .loadTrustMaterial(null, (certificate, authType) -> true).build();
+    public static String invoke(WeixinpayUnifiedorderModel model) throws WeixinpayException {
+        try {
+            SSLContext sslContext = new SSLContextBuilder()
+                    .loadTrustMaterial(null, (certificate, authType) -> true).build();
 
-        CloseableHttpClient client = HttpClients.custom()
-                .setSSLContext(sslContext)
-                .setSSLHostnameVerifier(new NoopHostnameVerifier())
-                .build();
-        HttpPost httpPost = new HttpPost("https://api.mch.weixin.qq.com/pay/unifiedorder");
-        String xmlData = WeixinpayUtil.generateXML(model);
-        System.out.println(xmlData);
+            CloseableHttpClient client = HttpClients.custom()
+                    .setSSLContext(sslContext)
+                    .setSSLHostnameVerifier(new NoopHostnameVerifier())
+                    .build();
+            HttpPost httpPost = new HttpPost("https://api.mch.weixin.qq.com/pay/unifiedorder");
+            String xmlData = WeixinpayUtil.generateXML(model);
+            System.out.println(xmlData);
 
-        httpPost.setHeader("Content-Type","application/xml");  //
-        httpPost.setEntity(new StringEntity(xmlData, ContentType.create("application/xml", "utf-8")));
-        HttpResponse response = client.execute(httpPost);
-        System.out.println(response.toString());
-        HttpEntity entity = response.getEntity();
-        String result = EntityUtils.toString(entity, "UTF-8");
-        System.out.println(result);
+            httpPost.setHeader("Content-Type", "application/xml");  //
+            httpPost.setEntity(new StringEntity(xmlData, ContentType.create("application/xml", "utf-8")));
+            HttpResponse response = client.execute(httpPost);
+            System.out.println(response.toString());
+            HttpEntity entity = response.getEntity();
+            String result = EntityUtils.toString(entity, "UTF-8");
+            System.out.println(result);
 
-        return "";
+            return "";
+        } catch (Exception e) {
+            throw new WeixinpayException(e.getMessage());
+        }
     }
 }

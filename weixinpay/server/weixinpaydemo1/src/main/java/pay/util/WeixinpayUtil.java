@@ -7,39 +7,45 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
+import pay.exception.WeixinpayException;
 import pay.model.request.WeixinpayModel;
 
+import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class WeixinpayUtil {
 
-    public static String generateXML(WeixinpayModel model) throws Exception {
-        Map<String, String> map = new TreeMap(BeanUtils.describe(model));
-        StringBuffer param = new StringBuffer();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            if ("class".equals(entry.getKey())) {
-                continue;
+    public static String generateXML(WeixinpayModel model) throws WeixinpayException {
+        try {
+            Map<String, String> map = new TreeMap(BeanUtils.describe(model));
+            StringBuffer param = new StringBuffer();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                if ("class".equals(entry.getKey())) {
+                    continue;
+                }
+                if ("key".equals(entry.getKey())) {
+                    continue;
+                }
+                if ("sign".equals(entry.getKey())) {
+                    continue;
+                }
+                param.append(entry.getKey() + "=" + entry.getValue() + "&");
             }
-            if ("key".equals(entry.getKey())) {
-                continue;
-            }
-            if ("sign".equals(entry.getKey())) {
-                continue;
-            }
-            param.append(entry.getKey() + "=" + entry.getValue() + "&");
+            param.append("key=" + model.getKey());
+            System.out.println(param.toString());
+
+            String encodeStr = DigestUtils.md5Hex(param.toString()).toUpperCase();
+            map.put("sign", encodeStr);
+
+            return generateXML(map);
+        } catch (Exception e) {
+            throw new WeixinpayException(e.getMessage());
         }
-        param.append("key=" + model.getKey());
-        System.out.println(param.toString());
-
-        String encodeStr = DigestUtils.md5Hex(param.toString()).toUpperCase();
-        map.put("sign", encodeStr);
-
-        return generateXML(map);
     }
 
-    private static String generateXML(Map<String, String> map) throws Exception {
+    private static String generateXML(Map<String, String> map) throws IOException {
         Document document = DocumentHelper.createDocument();
         Element root = document.addElement("xml");
         for (Map.Entry<String, String> entry : map.entrySet()) {
