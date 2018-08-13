@@ -1,4 +1,4 @@
-package paywxpay;
+package com.pai.funpkg.paywxpay;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

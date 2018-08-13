@@ -1,4 +1,4 @@
-package paywxpay;
+package com.pai.funpkg.paywxpay;
 
 import org.w3c.dom.Document;
 

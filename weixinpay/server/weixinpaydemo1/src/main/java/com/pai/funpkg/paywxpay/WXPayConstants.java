@@ -1,4 +1,4 @@
-package paywxpay;
+package com.pai.funpkg.paywxpay;
 
 import org.apache.http.client.HttpClient;
 

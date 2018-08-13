@@ -1,4 +1,4 @@
-package paywxpay;
+package com.pai.funpkg.paywxpay;
 
 /**
  * 域名管理，实现主备域名自动切换

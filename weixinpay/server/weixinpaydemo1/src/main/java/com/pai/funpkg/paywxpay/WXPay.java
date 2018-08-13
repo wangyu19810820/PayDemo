@@ -1,4 +1,4 @@
-package paywxpay;
+package com.pai.funpkg.paywxpay;
 
 import java.util.HashMap;
 import java.util.Map;
