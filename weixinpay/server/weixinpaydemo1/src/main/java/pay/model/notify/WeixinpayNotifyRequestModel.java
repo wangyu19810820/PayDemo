@@ -49,4 +49,24 @@ public class WeixinpayNotifyRequestModel extends WeixinpaySuccessResponse {
     // 支付完成时间
     private String time_end;
 
+    @Override
+    public String toString() {
+        return "WeixinpayNotifyRequestModel{" +
+                "openid='" + openid + '\'' +
+                ", is_subscribe='" + is_subscribe + '\'' +
+                ", trade_type='" + trade_type + '\'' +
+                ", total_fee='" + total_fee + '\'' +
+                ", fee_type='" + fee_type + '\'' +
+                ", cash_fee='" + cash_fee + '\'' +
+                ", cash_fee_type='" + cash_fee_type + '\'' +
+                ", coupon_fee='" + coupon_fee + '\'' +
+                ", coupon_count='" + coupon_count + '\'' +
+                ", coupon_id_$n='" + coupon_id_$n + '\'' +
+                ", coupon_fee_$n='" + coupon_fee_$n + '\'' +
+                ", transaction_id='" + transaction_id + '\'' +
+                ", out_trade_no='" + out_trade_no + '\'' +
+                ", attach='" + attach + '\'' +
+                ", time_end='" + time_end + '\'' +
+                "} " + super.toString();
+    }
 }

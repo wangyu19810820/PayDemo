@@ -109,7 +109,7 @@ public class WeixinpayUtil {
         }
     }
 
-    private static String generateXML(Map<String, String> map) throws IOException {
+    public static String generateXML(Map<String, String> map) throws IOException {
         Document document = DocumentHelper.createDocument();
         Element root = document.addElement("xml");
         for (Map.Entry<String, String> entry : map.entrySet()) {
