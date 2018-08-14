@@ -56,13 +56,14 @@ public class WeixinpayInterfaceUtil {
         try {
             WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
             WeixinpayAppPayModel model = new WeixinpayAppPayModel();
-            model.setPartnerId(config.getMch_id());
-            model.setPrepayId(prepayid);
-            model.setNonceStr(WeixinpayUtil.generateRandomString());
+            model.setPartnerid(config.getMch_id());
+            model.setPrepayid(prepayid);
+            model.setNoncestr(WeixinpayUtil.generateRandomString());
             model.setPackageStr(config.getPackageStr());
-            model.setTimeStamp(WeixinpayUtil.generateTimestamp());
+            model.setTimestamp(WeixinpayUtil.generateTimestamp());
 
             Map<String, String> map = BeanUtils.describe(model);
+            map.put("appid", config.getAppid());
             map.remove("packageStr");
             map.put("package", model.getPackageStr());
             model.setSign(WeixinpayUtil.generateSign(map, config.getKey()));

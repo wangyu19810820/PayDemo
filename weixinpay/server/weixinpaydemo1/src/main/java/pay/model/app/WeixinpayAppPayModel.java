@@ -3,37 +3,37 @@ package pay.model.app;
 public class WeixinpayAppPayModel {
 
     // 商户号
-    private String partnerId;
+    private String partnerid;
 
     // 预支付交易会话ID，统一下单接口返回
-    private String prepayId;
+    private String prepayid;
 
     // 扩展字段，暂填写固定值Sign=WXPay
     private String packageStr;
 
     // 随机字符串
-    private String nonceStr;
+    private String noncestr;
 
     // 时间戳，标准北京时间，时区为东八区，自1970年1月1日 0点0分0秒以来的秒数
-    private String timeStamp;
+    private String timestamp;
 
     // 签名
     private String sign;
 
-    public String getPartnerId() {
-        return partnerId;
+    public String getPartnerid() {
+        return partnerid;
     }
 
-    public void setPartnerId(String partnerId) {
-        this.partnerId = partnerId;
+    public void setPartnerid(String partnerid) {
+        this.partnerid = partnerid;
     }
 
-    public String getPrepayId() {
-        return prepayId;
+    public String getPrepayid() {
+        return prepayid;
     }
 
-    public void setPrepayId(String prepayId) {
-        this.prepayId = prepayId;
+    public void setPrepayid(String prepayid) {
+        this.prepayid = prepayid;
     }
 
     public String getPackageStr() {
@@ -44,20 +44,20 @@ public class WeixinpayAppPayModel {
         this.packageStr = packageStr;
     }
 
-    public String getNonceStr() {
-        return nonceStr;
+    public String getNoncestr() {
+        return noncestr;
     }
 
-    public void setNonceStr(String nonceStr) {
-        this.nonceStr = nonceStr;
+    public void setNoncestr(String noncestr) {
+        this.noncestr = noncestr;
     }
 
-    public String getTimeStamp() {
-        return timeStamp;
+    public String getTimestamp() {
+        return timestamp;
     }
 
-    public void setTimeStamp(String timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getSign() {
@@ -71,11 +71,11 @@ public class WeixinpayAppPayModel {
     @Override
     public String toString() {
         return "WeixinpayAppPayModel{" +
-                "partnerId='" + partnerId + '\'' +
-                ", prepayId='" + prepayId + '\'' +
+                "partnerid='" + partnerid + '\'' +
+                ", prepayid='" + prepayid + '\'' +
                 ", packageStr='" + packageStr + '\'' +
-                ", nonceStr='" + nonceStr + '\'' +
-                ", timeStamp='" + timeStamp + '\'' +
+                ", noncestr='" + noncestr + '\'' +
+                ", timestamp='" + timestamp + '\'' +
                 ", sign='" + sign + '\'' +
                 '}';
     }

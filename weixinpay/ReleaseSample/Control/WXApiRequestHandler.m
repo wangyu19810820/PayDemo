@@ -53,10 +53,10 @@
                 PayReq* req             = [[PayReq alloc] init];
                 req.partnerId           = @"1509949201";
                 req.prepayId            = @"wx14101633274726c4e9653c742493372920";
-                req.nonceStr            = @"0.8146852320080452";
-                req.timeStamp           = 1534216264;
+                req.nonceStr            = @"0.8610648627325312";
+                req.timeStamp           = 1534218275;
                 req.package             = @"Sign=WXPay";
-                req.sign                = @"5FCE6BC3994A606BA70284D30589D7A4";
+                req.sign                = @"CE90953EB1B31576F8F920521D479DC7";
                 [WXApi sendReq:req];
                 
                 //日志输出

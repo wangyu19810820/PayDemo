@@ -97,6 +97,7 @@ public class WeixinpayUtil {
                 param.append(entry.getKey() + "=" + entry.getValue() + "&");
             }
             param.append("key=" + key);
+            System.out.println(param);
             return DigestUtils.md5Hex(param.toString()).toUpperCase();
         } catch (Exception e) {
             throw new WeixinpayException(e.getMessage());
