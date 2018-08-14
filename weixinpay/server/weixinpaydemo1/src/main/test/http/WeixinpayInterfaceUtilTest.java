@@ -48,7 +48,8 @@ public class WeixinpayInterfaceUtilTest {
         model.setOut_trade_no("201808141016aaa");
         model.setTotal_fee("1");
         model.setRefund_fee("1");
-
+        model.setOut_refund_no("201808141016aaarefund");
+        model.setNotify_url("http://abc.com/refund");
         WeixinpayRefundResponse result = WeixinpayInterfaceUtil.refund(model);
         System.out.println(result);
     }

@@ -51,7 +51,7 @@ public class WeixinpayConfiguUtil {
         this.orderqueryUrl = "https://api.mch.weixin.qq.com/pay/orderquery";
         this.closeorderUrl = "https://api.mch.weixin.qq.com/pay/closeorder";
         this.refundUrl = "https://api.mch.weixin.qq.com/secapi/pay/refund";
-        this.refundqueryUrl = "https://api.mch.weixin.qq.com/pay/refundqueryUrl";
+        this.refundqueryUrl = "https://api.mch.weixin.qq.com/pay/refundquery";
         this.payNotifyUrl = "http://abc.com/pay";
         this.refundNotifyUrl = "http://abc.com/refund";
     }
