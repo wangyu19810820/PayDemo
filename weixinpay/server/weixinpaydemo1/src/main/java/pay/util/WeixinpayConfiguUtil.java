@@ -26,7 +26,13 @@ public class WeixinpayConfiguUtil {
     private String refundUrl;
 
     // 查询退款
-    private String refundquery;
+    private String refundqueryUrl;
+
+    // 支付回调地址
+    private String payNotifyUrl;
+
+    // 退款回调地址
+    private String refundNotifyUrl;
 
     private WeixinpayConfiguUtil() {
 //        this.appid = "wx49680a1b177c1fd7";
@@ -41,7 +47,9 @@ public class WeixinpayConfiguUtil {
         this.orderqueryUrl = "https://api.mch.weixin.qq.com/pay/orderquery";
         this.closeorderUrl = "https://api.mch.weixin.qq.com/pay/closeorder";
         this.refundUrl = "https://api.mch.weixin.qq.com/secapi/pay/refund";
-        this.refundquery = "https://api.mch.weixin.qq.com/pay/refundquery";
+        this.refundqueryUrl = "https://api.mch.weixin.qq.com/pay/refundqueryUrl";
+        this.payNotifyUrl = "http://abc.com/pay";
+        this.refundNotifyUrl = "http://abc.com/refund";
     }
 
     public static WeixinpayConfiguUtil getInstance() {
@@ -104,11 +112,27 @@ public class WeixinpayConfiguUtil {
         this.refundUrl = refundUrl;
     }
 
-    public String getRefundquery() {
-        return refundquery;
+    public String getRefundqueryUrl() {
+        return refundqueryUrl;
     }
 
-    public void setRefundquery(String refundquery) {
-        this.refundquery = refundquery;
+    public void setRefundqueryUrl(String refundqueryUrl) {
+        this.refundqueryUrl = refundqueryUrl;
+    }
+
+    public String getPayNotifyUrl() {
+        return payNotifyUrl;
+    }
+
+    public void setPayNotifyUrl(String payNotifyUrl) {
+        this.payNotifyUrl = payNotifyUrl;
+    }
+
+    public String getRefundNotifyUrl() {
+        return refundNotifyUrl;
+    }
+
+    public void setRefundNotifyUrl(String refundNotifyUrl) {
+        this.refundNotifyUrl = refundNotifyUrl;
     }
 }

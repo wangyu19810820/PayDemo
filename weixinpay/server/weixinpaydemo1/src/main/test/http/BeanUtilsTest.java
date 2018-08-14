@@ -7,6 +7,10 @@ import pay.model.request.WeixinpayUnifiedorderModel;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Apache的BeanUtils单元测试
+ * 用封装好的方式，实现反射的功能
+ */
 public class BeanUtilsTest {
 
     @Test

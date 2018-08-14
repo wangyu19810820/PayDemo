@@ -10,6 +10,7 @@ public class WeixinpayInterfaceUtil {
     public static WeixinpayUnifiedorderResponse unifiedorder(WeixinpayUnifiedorderModel model)
             throws WeixinpayException {
         WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
+        WeixinpayInterfaceUtil.initModelWithConfig(model, config);
         return WeixinpayInterfaceUtil.invoke(model, WeixinpayUnifiedorderResponse.class,  config.getUnifiedorderUrl());
     }
 
@@ -17,6 +18,7 @@ public class WeixinpayInterfaceUtil {
     public static WeixinpayOrderqueryResponse unifiedorder(WeixinpayOrderqueryModel model)
             throws WeixinpayException {
         WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
+        WeixinpayInterfaceUtil.initModelWithConfig(model, config);
         return WeixinpayInterfaceUtil.invoke(model, WeixinpayOrderqueryResponse.class, config.getOrderqueryUrl());
     }
 
@@ -24,6 +26,7 @@ public class WeixinpayInterfaceUtil {
     public static WeixinpayCloseorderResponse closeorder(WeixinpayCloseorderModel model)
             throws WeixinpayException {
         WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
+        WeixinpayInterfaceUtil.initModelWithConfig(model, config);
         return WeixinpayInterfaceUtil.invoke(model, WeixinpayCloseorderResponse.class, config.getCloseorderUrl());
     }
 
@@ -31,6 +34,7 @@ public class WeixinpayInterfaceUtil {
     public static WeixinpayRefundResponse refund(WeixinpayRefundModel model)
             throws WeixinpayException {
         WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
+        WeixinpayInterfaceUtil.initModelWithConfig(model, config);
         return WeixinpayInterfaceUtil.invoke(model, WeixinpayRefundResponse.class, config.getRefundUrl());
     }
 
@@ -38,9 +42,11 @@ public class WeixinpayInterfaceUtil {
     public static WeixinpayRefundResponse refundquery(WeixinpayRefundqueryModel model)
             throws WeixinpayException {
         WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
-        return WeixinpayInterfaceUtil.invoke(model, WeixinpayRefundResponse.class, config.getRefundquery());
+        WeixinpayInterfaceUtil.initModelWithConfig(model, config);
+        return WeixinpayInterfaceUtil.invoke(model, WeixinpayRefundResponse.class, config.getRefundqueryUrl());
     }
 
+    // 调用所有微信接口的统一途径
     private static <T extends WeixinpayModel, K extends WeixinpayResponse> K invoke(
             T requestModel, Class<K> responseClassName, String url)
             throws WeixinpayException {
@@ -49,6 +55,22 @@ public class WeixinpayInterfaceUtil {
             return responseModel;
         } catch (Exception e) {
             throw new WeixinpayException(e.getMessage());
+        }
+    }
+
+    // 从统一配置中初始化请求参数：appid，mch_id，key
+    private static void initModelWithConfig(WeixinpanServerModel model, WeixinpayConfiguUtil config) {
+        if (model.getAppid() == null || "".equals(model.getAppid())) {
+            model.setAppid(config.getAppid());
+        }
+        if (model.getMch_id() == null || "".equals(model.getMch_id())) {
+            model.setMch_id(config.getMch_id());
+        }
+        if (model.getKey() == null || "".equals(model.getKey())) {
+            model.setKey(config.getKey());
+        }
+        if (model.getNonce_str() == null || "".equals(model.getNonce_str())) {
+            model.setNonce_str(WeixinpayUtil.generateRandomString());
         }
     }
 }

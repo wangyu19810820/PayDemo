@@ -1,5 +1,6 @@
 package pay.util;
 
+import com.sun.javafx.binding.StringFormatter;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.HttpEntity;
@@ -132,5 +133,16 @@ public class WeixinpayUtil {
         XMLWriter xmlWriter = new XMLWriter(sw, format);
         xmlWriter.write(document);
         return sw.toString();
+    }
+
+    // 文档描述：我们推荐生成随机数算法如下：调用随机数函数生成，将得到的值转换为字符串。
+    // 文档描述：随机字符串，不长于32位
+    public static String generateRandomString() {
+        double num = Math.random();
+        String result = String.valueOf(num);
+        if (result.length() > 32) {
+            result = result.substring(0, 32);
+        }
+        return result;
     }
 }
