@@ -13,6 +13,9 @@ public class WeixinpayConfiguUtil {
     // key
     private String key;
 
+    // App用到的固定参数
+    private String packageStr;
+
     // 统一下单url
     private String unifiedorderUrl;
 
@@ -42,6 +45,7 @@ public class WeixinpayConfiguUtil {
         this.appid = "wx49680a1b177c1fd7";
         this.mch_id = "1509949201";
         this.key = "0757cc3ee0d74ba9aae6e3d9d85a7398";
+        this.packageStr = "Sign=WXPay";
 
         this.unifiedorderUrl = "https://api.mch.weixin.qq.com/pay/unifiedorder";
         this.orderqueryUrl = "https://api.mch.weixin.qq.com/pay/orderquery";
@@ -78,6 +82,14 @@ public class WeixinpayConfiguUtil {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public String getPackageStr() {
+        return packageStr;
+    }
+
+    public void setPackageStr(String packageStr) {
+        this.packageStr = packageStr;
     }
 
     public String getUnifiedorderUrl() {

@@ -1,6 +1,7 @@
 package http;
 
 import org.junit.Test;
+import pay.model.app.WeixinpayAppPayModel;
 import pay.model.request.*;
 import pay.model.response.WeixinpayCloseorderResponse;
 import pay.model.response.WeixinpayOrderqueryResponse;
@@ -84,5 +85,11 @@ public class WeixinpayInterfaceUtilTest {
 
         WeixinpayRefundResponse result = WeixinpayInterfaceUtil.refundquery(model);
         System.out.println(result);
+    }
+
+    @Test
+    public void generateAppParameter() throws Exception {
+        WeixinpayAppPayModel model = WeixinpayInterfaceUtil.generateAppParameter("wx14101633274726c4e9653c742493372920");
+        System.out.println(model);
     }
 }
