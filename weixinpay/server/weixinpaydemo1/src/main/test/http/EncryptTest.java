@@ -13,6 +13,7 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.UUID;
 
 public class EncryptTest {
 
@@ -104,5 +105,11 @@ public class EncryptTest {
         XMLWriter xmlWriter = new XMLWriter(sw, format);
         xmlWriter.write(document);
         return sw.toString();
+    }
+
+    @Test
+    public void test11() {
+        String uuid = UUID.randomUUID().toString();
+        System.out.println(uuid);
     }
 }

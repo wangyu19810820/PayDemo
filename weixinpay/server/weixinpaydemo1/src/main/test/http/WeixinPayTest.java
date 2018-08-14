@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * 微信支付：统一下单接口调试
+ * 微信支付：统一下单接口调试（用的是比较原始的方式，没有用封装API）
  * mch_id是商户号，key是商户的商户设置中的key
  *
  * 签名类型，默认MD5

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Iterator;
 
+// 接收xml（实际上是html），并解析的Demo
 public class DemoServlet extends HttpServlet {
 
     @Override

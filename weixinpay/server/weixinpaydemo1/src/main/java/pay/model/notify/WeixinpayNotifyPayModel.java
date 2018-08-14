@@ -2,7 +2,7 @@ package pay.model.notify;
 
 import pay.model.response.WeixinpaySuccessResponse;
 
-public class WeixinpayNotifyRequestModel extends WeixinpaySuccessResponse {
+public class WeixinpayNotifyPayModel extends WeixinpaySuccessResponse {
 
     // 用户标识
     private String openid;
@@ -51,7 +51,7 @@ public class WeixinpayNotifyRequestModel extends WeixinpaySuccessResponse {
 
     @Override
     public String toString() {
-        return "WeixinpayNotifyRequestModel{" +
+        return "WeixinpayNotifyPayModel{" +
                 "openid='" + openid + '\'' +
                 ", is_subscribe='" + is_subscribe + '\'' +
                 ", trade_type='" + trade_type + '\'' +

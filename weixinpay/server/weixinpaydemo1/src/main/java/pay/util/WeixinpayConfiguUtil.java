@@ -29,9 +29,14 @@ public class WeixinpayConfiguUtil {
     private String refundquery;
 
     private WeixinpayConfiguUtil() {
+//        this.appid = "wx49680a1b177c1fd7";
+//        this.mch_id = "1494287092";
+//        this.key = "81abddd648f64ae78d2f08696874262d";
+
         this.appid = "wx49680a1b177c1fd7";
-        this.mch_id = "1494287092";
-        this.key = "81abddd648f64ae78d2f08696874262d";
+        this.mch_id = "1509949201";
+        this.key = "0757cc3ee0d74ba9aae6e3d9d85a7398";
+
         this.unifiedorderUrl = "https://api.mch.weixin.qq.com/pay/unifiedorder";
         this.orderqueryUrl = "https://api.mch.weixin.qq.com/pay/orderquery";
         this.closeorderUrl = "https://api.mch.weixin.qq.com/pay/closeorder";

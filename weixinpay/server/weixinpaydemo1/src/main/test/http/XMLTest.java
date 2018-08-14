@@ -8,6 +8,9 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
+/**
+ * 用dom4j解析xml的单元测试
+ */
 public class XMLTest {
 
     @Test

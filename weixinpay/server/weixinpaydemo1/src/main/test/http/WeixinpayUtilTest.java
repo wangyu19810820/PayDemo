@@ -3,12 +3,19 @@ package http;
 import org.junit.Test;
 import pay.model.request.WeixinpayUnifiedorderModel;
 import pay.model.response.WeixinpayResponse;
+import pay.util.WeixinpayConfiguUtil;
 import pay.util.WeixinpayUtil;
 
+/**
+ * 微信支付封装API的单元测试
+ *
+ */
 public class WeixinpayUtilTest {
 
+    // 测试将Bean转成XML
     @Test
     public void test1() throws Exception {
+        WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
         WeixinpayUnifiedorderModel model = new WeixinpayUnifiedorderModel();
         model.setAppid("wx49680a1b177c1fd7");
         model.setBody("bbb");
@@ -17,14 +24,15 @@ public class WeixinpayUtilTest {
         model.setSpbill_create_ip("122.12.11.11");
         model.setTotal_fee("1");
         model.setTrade_type("APP");
-        model.setKey("81abddd648f64ae78d2f08696874262d");
-        model.setMch_id("1494287092");
+        model.setKey(config.getKey());
+        model.setMch_id(config.getMch_id());
         model.setNonce_str("abc");
 
         String xml = WeixinpayUtil.generateXML(model);
         System.out.println(xml);
     }
 
+    // 测试将XML转换成Bean
     @Test
     public void test2() throws Exception {
         String xml = "<xml><return_code><![CDATA[FAIL]]></return_code>\n" +

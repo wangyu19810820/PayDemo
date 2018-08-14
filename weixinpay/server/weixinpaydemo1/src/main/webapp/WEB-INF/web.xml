@@ -24,4 +24,23 @@
         <servlet-name>DemoServlet</servlet-name>
         <url-pattern>/DemoServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WeixinpayPayNotifyServlet</servlet-name>
+        <servlet-class>servlet.WeixinpayPayNotifyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WeixinpayPayNotifyServlet</servlet-name>
+        <url-pattern>/WeixinpayPayNotifyServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WeixinpayRefundNotifyServlet</servlet-name>
+        <servlet-class>servlet.WeixinpayRefundNotifyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WeixinpayRefundNotifyServlet</servlet-name>
+        <url-pattern>/WeixinpayRefundNotifyServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
