@@ -6,6 +6,8 @@ import pay.model.app.WeixinpayAppPayModel;
 import pay.model.request.*;
 import pay.model.response.*;
 
+import java.util.Map;
+
 public class WeixinpayInterfaceUtil {
 
     // 统一下单
@@ -59,7 +61,11 @@ public class WeixinpayInterfaceUtil {
             model.setNonceStr(WeixinpayUtil.generateRandomString());
             model.setPackageStr(config.getPackageStr());
             model.setTimeStamp(WeixinpayUtil.generateTimestamp());
-            model.setSign(WeixinpayUtil.generateSign(BeanUtils.describe(model), config.getKey()));
+
+            Map<String, String> map = BeanUtils.describe(model);
+            map.remove("packageStr");
+            map.put("package", model.getPackageStr());
+            model.setSign(WeixinpayUtil.generateSign(map, config.getKey()));
             return model;
         } catch (Exception e) {
             throw new WeixinpayException(e.getMessage());
