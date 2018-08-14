@@ -30,7 +30,7 @@
     }];
     
     //向微信注册,发起支付必须注册
-    [WXApi registerApp:@"wxb4ba3c02aa476ea1" enableMTA:YES];
+    [WXApi registerApp:@"wx49680a1b177c1fd7" enableMTA:YES];
     
     return YES;
 }
