@@ -1,6 +1,8 @@
 package pay.util;
 
+import org.apache.commons.beanutils.BeanUtils;
 import pay.exception.WeixinpayException;
+import pay.model.app.WeixinpayAppPayModel;
 import pay.model.request.*;
 import pay.model.response.*;
 
@@ -44,6 +46,24 @@ public class WeixinpayInterfaceUtil {
         WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
         WeixinpayInterfaceUtil.initModelWithConfig(model, config);
         return WeixinpayInterfaceUtil.invoke(model, WeixinpayRefundResponse.class, config.getRefundqueryUrl());
+    }
+
+    // 为App端调用接口，准备参数
+    public static WeixinpayAppPayModel generateAppParameter(String prepayid)
+            throws WeixinpayException {
+        try {
+            WeixinpayConfiguUtil config = WeixinpayConfiguUtil.getInstance();
+            WeixinpayAppPayModel model = new WeixinpayAppPayModel();
+            model.setPartnerId(config.getMch_id());
+            model.setPrepayId(prepayid);
+            model.setNonceStr(WeixinpayUtil.generateRandomString());
+            model.setPackageStr(config.getPackageStr());
+            model.setTimeStamp(WeixinpayUtil.generateTimestamp());
+            model.setSign(WeixinpayUtil.generateSign(BeanUtils.describe(model), config.getKey()));
+            return model;
+        } catch (Exception e) {
+            throw new WeixinpayException(e.getMessage());
+        }
     }
 
     // 调用所有微信接口的统一途径

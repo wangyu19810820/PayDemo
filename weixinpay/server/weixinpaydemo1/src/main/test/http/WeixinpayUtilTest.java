@@ -49,4 +49,12 @@ public class WeixinpayUtilTest {
         System.out.println(result);
         System.out.println(result.length());
     }
+
+    // 测试生成时间戳，1970年的秒数，10位
+    @Test
+    public void test4() {
+        String result = WeixinpayUtil.generateTimestamp();
+        System.out.println(result);
+        System.out.println(result.length());
+    }
 }

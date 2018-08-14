@@ -26,10 +26,7 @@ import pay.model.response.WeixinpayUnifiedorderResponse;
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class WeixinpayUtil {
 
@@ -80,11 +77,11 @@ public class WeixinpayUtil {
         }
     }
 
-    public static String generateXML(WeixinpayModel model) throws WeixinpayException {
+    public static String generateSign(Map<String, String> map, String key) throws WeixinpayException {
+        Map<String, String> treeMap = new TreeMap(map);
         try {
-            Map<String, String> map = new TreeMap(BeanUtils.describe(model));
             StringBuffer param = new StringBuffer();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
+            for (Map.Entry<String, String> entry : treeMap.entrySet()) {
                 if ("class".equals(entry.getKey())) {
                     continue;
                 }
@@ -99,11 +96,18 @@ public class WeixinpayUtil {
                 }
                 param.append(entry.getKey() + "=" + entry.getValue() + "&");
             }
-            param.append("key=" + model.getKey());
+            param.append("key=" + key);
+            return DigestUtils.md5Hex(param.toString()).toUpperCase();
+        } catch (Exception e) {
+            throw new WeixinpayException(e.getMessage());
+        }
+    }
 
-            String encodeStr = DigestUtils.md5Hex(param.toString()).toUpperCase();
+    public static String generateXML(WeixinpayModel model) throws WeixinpayException {
+        try {
+            Map<String, String> map = BeanUtils.describe(model);
+            String encodeStr = generateSign(map, model.getKey());
             map.put("sign", encodeStr);
-
             return generateXML(map);
         } catch (Exception e) {
             throw new WeixinpayException(e.getMessage());
@@ -144,5 +148,13 @@ public class WeixinpayUtil {
             result = result.substring(0, 32);
         }
         return result;
+    }
+
+    // 文档描述：标准北京时间，时区为东八区，自1970年1月1日 0点0分0秒以来的秒数。
+    // 注意：部分系统取到的值为毫秒级，需要转换成秒(10位数字)。
+    public static String generateTimestamp() {
+        Date now = new Date();
+        long time = now.getTime();
+        return String.valueOf(time / 1000);
     }
 }
