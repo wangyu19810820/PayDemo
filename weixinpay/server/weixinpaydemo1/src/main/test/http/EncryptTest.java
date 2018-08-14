@@ -10,11 +10,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.StringWriter;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
 
+/**
+ * 加密的单元测试
+ * 微信支付加密方式是MD5加密
+ * 参数(x=xxx&y=yyy)排序后，再添加&key=xxxxxxxx
+ * 再MD5加密后，就是微信所需要的签名sign
+ */
 public class EncryptTest {
 
     @Test

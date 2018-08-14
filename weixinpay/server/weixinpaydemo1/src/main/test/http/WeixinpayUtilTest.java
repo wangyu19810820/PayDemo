@@ -41,4 +41,12 @@ public class WeixinpayUtilTest {
         WeixinpayResponse obj = WeixinpayUtil.<WeixinpayResponse>resolve(xml, WeixinpayResponse.class);
         System.out.println(obj);
     }
+
+    // 测试随机数生成，不长于32位
+    @Test
+    public void test3() {
+        String result = WeixinpayUtil.generateRandomString();
+        System.out.println(result);
+        System.out.println(result.length());
+    }
 }
