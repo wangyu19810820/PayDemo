@@ -95,17 +95,17 @@ public class WeixinPayTest {
     }
 
     public String generateXML() throws Exception {
-        String key = "81abddd648f64ae78d2f08696874262d";
+        String key = "0757cc3ee0d74ba9aae6e3d9d85a7398";
         Map<String, String> map = new TreeMap<>();
         map.put("appid", "wx49680a1b177c1fd7");
-        map.put("mch_id", "1494287092");
+        map.put("mch_id", "1509949201");
         map.put("body", "test");
         map.put("nonce_str", "abc");
         map.put("spbill_create_ip", "14.23.150.211");
         map.put("total_fee", "1");
         map.put("notify_url", "1");
         map.put("trade_type", "APP");
-        map.put("out_trade_no", "http://abc.com");
+        map.put("out_trade_no", "aaaaaabbbbbb");
 
         StringBuffer param = new StringBuffer();
         for (Map.Entry<String, String> entry : map.entrySet()) {

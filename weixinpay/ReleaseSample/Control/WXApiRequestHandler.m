@@ -50,17 +50,19 @@
 //                req.sign                = [dict objectForKey:@"sign"];
 //                [WXApi sendReq:req];
                 
+                
+                
                 PayReq* req             = [[PayReq alloc] init];
                 req.partnerId           = @"1509949201";
-                req.prepayId            = @"wx14101633274726c4e9653c742493372920";
-                req.nonceStr            = @"0.8610648627325312";
-                req.timeStamp           = 1534218275;
+                req.prepayId            = @"wx222222449241569f7d1881170438505732";
+                req.nonceStr            = @"0.3976097969831708";
+                req.timeStamp           = 1534947832;
                 req.package             = @"Sign=WXPay";
-                req.sign                = @"CE90953EB1B31576F8F920521D479DC7";
+                req.sign                = @"F473606275D4355BCB68EB5268A0DE30";
                 [WXApi sendReq:req];
                 
                 //日志输出
-                NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
+//                NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
                 return @"";
             }else{
                 return [dict objectForKey:@"retmsg"];
