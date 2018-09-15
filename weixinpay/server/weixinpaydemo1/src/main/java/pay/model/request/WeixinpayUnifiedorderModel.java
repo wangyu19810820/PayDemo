@@ -21,6 +21,10 @@ public class WeixinpayUnifiedorderModel extends WeixinpanServerModel {
     // 交易类型,值为APP
     private String trade_type;
 
+    private String openid;
+
+    private String sign_type;
+
     public String getOut_trade_no() {
         return out_trade_no;
     }
@@ -67,5 +71,21 @@ public class WeixinpayUnifiedorderModel extends WeixinpanServerModel {
 
     public void setTrade_type(String trade_type) {
         this.trade_type = trade_type;
+    }
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    public String getSign_type() {
+        return sign_type;
+    }
+
+    public void setSign_type(String sign_type) {
+        this.sign_type = sign_type;
     }
 }

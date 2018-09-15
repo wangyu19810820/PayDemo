@@ -1,0 +1,210 @@
+﻿Bitvise Tunnelier End User License Agreement
+
+Bitvise Limited, a limited liability company incorporated in Gibraltar with
+incorporation number 90668, ("Bitvise"), has developed and continues to develop
+a Windows SSH client program named Tunnelier ("Tunnelier"), to which it owns
+all right, title, and interest, and is willing to grant you, meaning any
+individual or entity who will use Tunnelier, ("you"), the license to use
+Tunnelier, upon the condition that you agree to and accept all of the terms of
+this License Agreement ("Agreement").
+
+You must read this Agreement carefully.
+
+1.  Definitions.
+
+- A "Machine" is a single hardware computer unit, or a virtual machine running
+in a simulated environment inside another Machine. Each node of a cluster
+counts as an individual Machine.
+
+- An "Affiliated Individual" is any individual performing work on behalf of an
+entity, whether officer, employee, consultant or contractor, whether the
+relationship is temporary or permanent, part-time or full-time, direct or
+through another agency or company.
+
+- An "Organizational Department" is any reasonably permanent unit of Affiliated
+Individuals and/or Machines recognized as a unit in an entity. If an entity has
+Affiliated Individuals or Machines that are not part of an Organizational
+Department, then this Agreement defines a default Organizational Department as
+containing those Affiliated Individuals and Machines.
+
+- An "Environment" is an Organizational Department or the personal domain of a
+family or individual.
+
+- The "Measure of Use" in an Environment is: the maximum number of individuals
+that use Tunnelier in that Environment on any given day, or the maximum number
+of Machines on which Tunnelier is running in that Environment on any given day,
+whichever of the two is higher. An individual uses Tunnelier if Tunnelier runs
+in the same operating system session that the individual accesses and operates.
+
+2.  License.  Bitvise grants you the right to use Tunnelier free of charge in
+an Environment as long as the Measure of Use in that Environment is 4 or less.
+
+Bitvise grants the right to use Tunnelier at a higher Measure of Use ("Expanded
+License") generally in return for payment according to Bitvise's current
+pricing schedule. An Expanded License is owned perpetually by the Environment
+for which it is acquired. An Expanded License is non-transferrable between
+Environments, but may be transferred along with an Environment.
+
+Each Environment has a single highest permitted Measure of Use, which is either
+the (a) free rights granted by this Agreement, or (b) a higher Measure of Use
+permitted by an Expanded License acquired under this Agreement. Any subsequent
+purchase of an Expanded License under this Agreement adds to the highest
+permitted Measure of Use from previous purchases.
+
+The correct highest permitted Measure of Use is not cumulative with the limited
+free use. For example, installing Tunnelier on ten (10) Machines requires an
+Expanded License for ten (10) units, not six (6).
+
+When an Expanded License is purchased, Bitvise will send you a "License Code".
+Mere possession of a License Code does not imply an Expanded License. It is not
+mandatory that an Environment apply a License Code to all its Tunnelier
+installations, but applying the License Code may be required to enable features
+not present when Tunnelier is used without a License Code.
+
+Any License Code in your possession must be made available only to persons who
+require it to administer Tunnelier installations on Machines in the
+Environment, and must be protected securely against access by third parties and
+unauthorized personnel.
+
+3.  Rights.  You may use Tunnelier in accordance with this Agreement in any way
+you see fit to the extent permitted legally where such use is taking place. You
+may move your Tunnelier installations to different Machines, by removing
+Tunnelier from the Machine on which it was previously installed and installing
+it again on the other Machine. You may delete the License Code of an activated
+Tunnelier installation from the registry location where it is stored. You may
+create copies of the Tunnelier distributable, as well as any or all of
+Tunnelier's parts or components, as a backup for your own use in the future.
+
+You may not use Tunnelier beyond the scope legally permitted where such use is
+taking place. You may not use Tunnelier beyond the Measure of Use permitted in
+your Environment. You may not attempt to circumvent the Tunnelier activation
+process in any way without advance, specific and written approval from Bitvise.
+You may not reverse engineer or disassemble or modify Tunnelier or any of its
+parts or distributables in any way without advance, specific and written
+approval from Bitvise. You may not provide a copy of Tunnelier or of any of its
+parts or distributables to a third party without advance, specific and written
+approval from Bitvise.
+
+4.  Ownership.  You agree that this Agreement does not convey to you any
+ownership interest in Tunnelier, and that you are merely granted the license to
+use it, which is revoked if you breach your obligations arising from this
+Agreement, in accordance with Section 9 (Term and Termination).
+
+5.  Support and Upgrades.  If payment in full has been made for an Expanded
+License, Bitvise will, for one year, provide free access to upgrades and newly
+released versions, and free email and online-forum support. In subsequent
+years, Bitvise offers support and upgrades at an annual rate not higher than 20
+percent of the current price for the permitted Measure of Use in your
+Environment. Support includes answering questions arising from use of
+Tunnelier.
+
+6.  Non-Renewal of Support and Upgrades.  If you choose not to extend the
+Support and Upgrades beyond the first year, Bitvise reserves the sole and
+unlimited discretion to provide any access to Support and Upgrades.
+
+7.  Indemnification.  In return for the payment in full of fee for an Expanded
+License, Bitvise will indemnify you and your officers, directors, agents,
+employees, and direct and indirect end user customers against all claims,
+actions, judgments, awards, expenses (including reasonable attorney's fees) and
+damages awarded or agreed by Bitvise to be paid in settlement arising from a
+claim asserting that an unaltered release of Tunnelier including any
+modifications or enhancements (collectively the "Indemnified Software")
+released by Bitvise to the public during the term of this Agreement and used in
+accordance with the terms of this Agreement infringes a third-party copyright,
+trade secret or U.S. patent so long as you give Bitvise (a) prompt written
+notice of such claim or action; (b) the right to control and direct the
+investigation, preparation, defense, and settlement of the action; and (c)
+reasonable assistance and information. If a final injunction is obtained
+against your right to continue using the Indemnified Software or, if in
+Bitvise's opinion the Indemnified Software is likely to become the subject of a
+claim, Bitvise shall have the option to (i) obtain the right for you to
+continue using the Indemnified Software; or (ii) replace or modify the
+Indemnified Software so that it no longer infringes but functions equivalently
+and the replacement software does not affect the form, fit or function
+(including interoperability) of the Indemnified Software. If Bitvise determines
+that neither of these alternatives is practicable after sustained and
+reasonable efforts, Bitvise shall remove the infringing portion and refund to
+you an applicable portion of the monies you paid for the affected software less
+depreciation for use assuming straight line depreciation over a five-year
+useful life.
+
+8.  Assignment.  This Agreement will bind and inure to the benefit of each
+party's permitted successors and assigns. However, you may not assign this
+Agreement in whole or in part, or transfer to a third party the license or any
+of the rights or obligations granted to you through this Agreement, unless
+explicitly permitted to do so by Bitvise in this Agreement or separately in
+writing. Any attempt to assign this Agreement or transfer such license or
+obligations or rights without Bitvise's explicit written permission will be
+void and null.
+
+Note that Section 2 (License) specifically allows you to transfer your
+Tunnelier license when you transfer an Environment in whole.
+
+9.  Term and Termination.  This Agreement remains valid and in force
+indefinitely as long as you continue to use Tunnelier on any Machine, or
+continue to have any copies of Tunnelier, any of its parts or distributables
+stored on any Machine or storage facility in your possession or control.
+
+You may terminate this Agreement unilaterally at any time, and with immediate
+effect, if you have already removed or made irreversibly inoperable all copies
+of Tunnelier and any of its parts or distributables residing on any Machines or
+media in your possession or control.
+
+This Agreement is terminated automatically, and with immediate effect, if you
+breach any of your obligations according to this Agreement, and fail to cure
+the breach within thirty (30) calendar days of discovering the breach. In this
+case, you must cease to use Tunnelier immediately, and must immediately remove
+or make irreversibly inoperable all copies of Tunnelier and any of its parts or
+distributables residing on any Machines or media in your possession or control.
+
+10. Limitation of Responsibility.  You agree that you shall not hold Bitvise
+responsible or liable:
+
+- for any damage or harm caused or arising through anyone's use, misuse or
+attempted use of Tunnelier, including but not limited to any failure of or
+within Tunnelier, any programming error in, triggered by or related to
+Tunnelier, or any incorrect or illegal use of Tunnelier. You assume the entire
+risk of the results and performance of your Tunnelier installations;
+
+- for any damage or harm caused by a technical or administrative problem on the
+recipient's or intermediary's behalf that cannot reasonably be cured by
+Bitvise, including but not limited to any DNS or mail server issue or a problem
+with a proxy, a firewall, email filtering or another network device.
+
+Furthermore, you agree that Bitvise's total liabilities, if any, arising from
+this Agreement or Tunnelier shall not exceed the amount actually paid to
+Bitvise for Tunnelier's use in your Environment. Any use of Tunnelier that
+requires greater assurance is at your own risk and responsibility.
+
+11. Headings.  Headings and captions are for convenience only and are not to be
+used in the interpretation of this Agreement.
+
+12. Governing Law, Jurisdiction and Venue. This Agreement shall be governed by
+the laws of England. Each party agrees that any suit that it brings in relation
+to this Agreement shall be brought in a court sitting in England, and that
+venue is proper in England. Each party agrees not to dispute the personal
+jurisdiction of a court sitting in England.
+
+13. Severability.  If any provision of this Agreement is adjudged by any court
+of competent jurisdiction to be unenforceable or invalid, and that provision is
+capable of being limited or eliminated without destroying the material economic
+incentives of the parties embodied by this Agreement then such provision shall
+be so limited or eliminated to the minimum extent necessary so that this
+Agreement shall otherwise remain in full force and effect and enforceable.
+
+14. Survival.  The following provisions shall survive termination of this
+Agreement: Section 1 (Definitions), Section 3 (Rights), Section 4 (Ownership),
+Section 7 (No Assignment), Section 9 (Term and Termination), Section 10
+(Limitation of Responsibility), Section 11 (Headings), Section 12 (Governing
+Law, Jurisdiction and Venue), Section 13 (Severability), Section 14 (Survival),
+Section 15 (Waiver), Section 16 (Complete Agreement and Modification).
+
+15. Waiver.  No failure to exercise or delay in exercising any right under this
+Agreement will operate as a waiver of that right, nor will any single or
+partial exercise of any right or power preclude further exercise of that right
+or any other right.
+
+16. Complete Agreement and Modification.  This Agreement constitutes the
+complete and only agreement of the parties with respect to its subject matter,
+to be superseded or modified only by a written document that refers
+specifically to this Agreement and is signed by both parties.

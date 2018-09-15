@@ -2,8 +2,11 @@ package https;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.util.EntityUtils;
 import sun.net.www.http.HttpClient;
@@ -33,5 +36,17 @@ public class HttpClientUtil {
 //            ex.printStackTrace();
 //        }
         return result;
+    }
+
+    public static String doGet(String url){
+        try{
+            CloseableHttpClient httpCilent = HttpClients.createDefault();
+            HttpGet httpGet = new HttpGet(url);
+            HttpResponse httpResponse = httpCilent.execute(httpGet);
+            return EntityUtils.toString(httpResponse.getEntity());
+        }catch(Exception ex){
+
+        }
+        return null;
     }
 }

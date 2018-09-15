@@ -26,6 +26,33 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>GzhServlet</servlet-name>
+        <servlet-class>servlet.GzhServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GzhServlet</servlet-name>
+        <url-pattern>/GzhServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GzhSuccessServlet</servlet-name>
+        <servlet-class>servlet.GzhSuccessServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GzhSuccessServlet</servlet-name>
+        <url-pattern>/GzhSuccessServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GzhCallbackServlet</servlet-name>
+        <servlet-class>servlet.GzhCallbackServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GzhCallbackServlet</servlet-name>
+        <url-pattern>/GzhCallbackServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>WeixinpayPayNotifyServlet</servlet-name>
         <servlet-class>servlet.WeixinpayPayNotifyServlet</servlet-class>
     </servlet>

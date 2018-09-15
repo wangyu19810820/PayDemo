@@ -42,10 +42,18 @@ public class WeixinpayConfiguUtil {
 //        this.mch_id = "1494287092";
 //        this.key = "81abddd648f64ae78d2f08696874262d";
 
-        this.appid = "wx49680a1b177c1fd7";
-        this.mch_id = "1509949201";
-        this.key = "0757cc3ee0d74ba9aae6e3d9d85a7398";
-        this.packageStr = "Sign=WXPay";
+        // 微信APP支付
+//        this.appid = "wx49680a1b177c1fd7";
+//        this.mch_id = "1509949201";
+//        this.key = "0757cc3ee0d74ba9aae6e3d9d85a7398";
+//        this.packageStr = "Sign=WXPay";
+
+        // 公众号支付
+        this.appid = "wxd2b107737ba0c59e";
+        this.mch_id = "1494287092";
+        this.key = "81abddd648f64ae78d2f08696874262d";
+//        this.key = "0a5cc615744c63c51e12c822d46c0bf4";
+        this.packageStr = "";
 
         this.unifiedorderUrl = "https://api.mch.weixin.qq.com/pay/unifiedorder";
         this.orderqueryUrl = "https://api.mch.weixin.qq.com/pay/orderquery";

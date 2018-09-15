@@ -1,0 +1,1 @@
+Your Bitvise SSH Client settings registry files will go here
