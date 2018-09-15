@@ -1,0 +1,35 @@
+1.相关网站
+微信公众平台
+https://mp.weixin.qq.com/cgi-bin/home?t=home/index&lang=zh_CN&token=1260388631
+微信商户平台
+https://pay.weixin.qq.com/index.php/extend/pay_setting
+官方文档
+https://pay.weixin.qq.com/wiki/doc/api/index.html
+
+参考文章
+手把手教你--JAVA微信支付（公众号支付JSAPI）
+https://blog.csdn.net/javaYouCome/article/details/79473743
+微信公众号支付支付验证签名失败及公众号支付总结
+https://blog.csdn.net/the_knife/article/details/71404578
+微信公众号网页授权获取用户openid
+https://blog.csdn.net/tonyfreak/article/details/78050127
+微信公众号支付报错：当前的url未注册解决方法
+https://blog.csdn.net/zixiangli/article/details/78468174
+
+2.准备配置参数
+APPID 微信公众平台-->开发-->基本配置
+MCHID 商户号 
+KEY 微信商户平台(pay.weixin.qq.com)-->账户设置-->API安全-->密钥设置
+要把支付页面添加到白名单，还要注意上下文参数
+
+3.流程和注意点
+公众号支付必须在微信浏览器中才能成功，并且微信版本需大于等于5，文档有介绍如何判断
+与其他支付不同，公众号支付在生成预支付id的时候，必须要openid
+所以，第一步通过一个url获取code，在回调页面中将此code传给项目服务器
+第二步，项目后台通过调用微信一个地址，将code转换成openid
+第三步，组装统一下单接口的各个参数并签名后，调用接口，获取预支付id
+第四步，组装js调用微信支付接口的各个参数（包含预支付id），签名后，发送给h5
+第五步，h5中通过js调起微信支付，如果成功则通知项目服务器查询支付状态，或者等待微信回调
+如果报错，没填total_fee，有可能是预支付id无效
+如果报错，签名错误，需要仔细查验签名参数，尤其是大小写和加密算法
+如果报错，当前页面的URL未注册，是支付授权目录没有加入到测试白名单，并且需要注意不但是域名精确匹配，上下文路径也要精确匹配
