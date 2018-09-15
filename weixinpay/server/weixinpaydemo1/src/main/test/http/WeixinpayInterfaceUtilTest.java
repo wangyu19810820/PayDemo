@@ -11,6 +11,23 @@ import pay.util.WeixinpayInterfaceUtil;
 
 public class WeixinpayInterfaceUtilTest {
 
+    // 公众号支付，统一下单接口，
+    // 和APP支付不同点：appid是公众号，spbill_create_ip是用户端ip，trade_type是JSAPI
+    @Test
+    public void unifiedorderGZHTest() throws Exception {
+        WeixinpayUnifiedorderModel model = new WeixinpayUnifiedorderModel();
+        model.setAppid("wx49680a1b177c1fd7");
+        model.setBody("bbb");
+        model.setNotify_url("http://abc.com");
+        model.setOut_trade_no("201808141016dddd");
+        model.setSpbill_create_ip("122.12.11.11");
+        model.setTotal_fee("1");
+        model.setTrade_type("JSAPI");
+
+        WeixinpayUnifiedorderResponse result = WeixinpayInterfaceUtil.unifiedorder(model);
+        System.out.println(result);
+    }
+
     // 统一下单接口
     @Test
     public void unifiedorderTest() throws Exception {
